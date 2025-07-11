@@ -1,0 +1,50 @@
+/* Estilos gerais para a página */
+body {
+    font-family: sans-serif;
+    background-color: #f0f2f5;
+    color: #333;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+/* O contêiner principal que centraliza nosso conteúdo */
+.container {
+    background-color: #ffffff;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    width: 90%;
+    max-width: 600px;
+}
+
+h1 {
+    color: #007bff;
+}
+
+p {
+    color: #6c757d;
+    margin-bottom: 20px;
+}
+
+/* Estilizando nossa área de texto (textarea) */
+#blocoDeNotas {
+    width: 100%;
+    height: 200px;
+    padding: 15px;
+    border: 1px solid #ced4da;
+    border-radius: 4px;
+    font-size: 16px;
+    line-height: 1.5;
+    box-sizing: border-box; /* Garante que o padding não aumente a largura total */
+    resize: vertical; /* Permite que o usuário redimensione a altura */
+}
+
+#blocoDeNotas:focus {
+    outline: none;
+    border-color: #007bff;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}

@@ -9,6 +9,15 @@ document.addEventListener('DOMContentLoaded', () => {
     // Usamos 'document.getElementById' para pegar o elemento pelo 'id' que definimos no HTML.
     const blocoDeNotas = document.getElementById('blocoDeNotas');
 
+    const btnLimpador = document.getElementById('limpar')
+
+    btnLimpador.addEventListener('click', () => {
+        blocoDeNotas.value = '';
+        localStorage.removeItem('minhaNota');
+        console.log('Notas limpas!');
+    });
+
+
     // 2. CARREGANDO DADOS DO LOCALSTORAGE
     // ------------------------------------
     // O 'localStorage' é um recurso do navegador que permite salvar informações
@@ -25,10 +34,9 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // 3. ADICIONANDO UM 'EVENTLISTENER'
-    // ---------------------------------
+
     // Agora, a parte principal: queremos fazer algo sempre que o usuário digitar.
     // O 'addEventListener' é como um "ouvinte" que fica esperando por uma ação específica.
-    //
     // Parâmetros do addEventListener:
     //   - O primeiro é o TIPO DE EVENTO que queremos ouvir. 'input' é disparado
     //     toda vez que o valor do <textarea> muda (ou seja, o usuário digita, apaga, etc).
@@ -36,15 +44,12 @@ document.addEventListener('DOMContentLoaded', () => {
     //     Esta função é chamada de "callback".
     blocoDeNotas.addEventListener('input', () => {
         // 4. SALVANDO DADOS NO LOCALSTORAGE
-        // -----------------------------------
-        // Dentro da nossa função de callback, pegamos o valor atual do bloco de notas
-        // e o salvamos no localStorage.
+
+        // Dentro da nossa função de callback, pegamos o valor atual do bloco de notas e o salvamos no localStorage.
         // Usamos 'localStorage.setItem()' para isso.
-        //
         // Parâmetros do setItem:
         //   - O primeiro é a CHAVE (o "nome" do nosso dado). Usaremos a mesma chave 'minhaNota'.
-        //   - O segundo é o VALOR que queremos salvar. 'blocoDeNotas.value' contém o texto
-        //     que está atualmente na área de texto.
+        //   - O segundo é o VALOR que queremos salvar. 'blocoDeNotas.value' contém o texto que está atualmente na área de texto.
         localStorage.setItem('minhaNota', blocoDeNotas.value);
 
         console.log("Nota salva no localStorage!"); // Uma mensagem no console para fins de depuração.

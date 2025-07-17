@@ -11,12 +11,28 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const btnLimpador = document.getElementById('limpar')
 
+    const btnSalvar = document.getElementById('salvar')
+
+    const btnaleatorizar = document.getElementById('coralea')
+
+    btnSalvar.addEventListener('click', () => {
+    localStorage.setItem('minhaNota');
+    console.log('Notas salvas!');
+    });
+
+    btnaleatorizar.addEventListener('click', () => {
+        const randomColor = '#' + Math.floor(Math.random()*16777215).toString(16);
+        blocoDeNotas.style.backgroundColor = randomColor;
+        blocoDeNotas.style.color = randomColor;
+        blocoDeNotas.style.borderColor = randomColor;
+        blocoDeNotas.style.boxShadow = `0 0 10px ${randomColor}`;
+    });
+
     btnLimpador.addEventListener('click', () => {
         blocoDeNotas.value = '';
         localStorage.removeItem('minhaNota');
         console.log('Notas limpas!');
     });
-
 
     // 2. CARREGANDO DADOS DO LOCALSTORAGE
     // ------------------------------------
@@ -42,7 +58,7 @@ document.addEventListener('DOMContentLoaded', () => {
     //     toda vez que o valor do <textarea> muda (ou seja, o usuário digita, apaga, etc).
     //   - O segundo é a FUNÇÃO que será executada quando o evento acontecer.
     //     Esta função é chamada de "callback".
-    blocoDeNotas.addEventListener('input', () => {
+    //blocoDeNotas.addEventListener('input', () => {
         // 4. SALVANDO DADOS NO LOCALSTORAGE
 
         // Dentro da nossa função de callback, pegamos o valor atual do bloco de notas e o salvamos no localStorage.
@@ -54,5 +70,3 @@ document.addEventListener('DOMContentLoaded', () => {
 
         console.log("Nota salva no localStorage!"); // Uma mensagem no console para fins de depuração.
     });
-
-});

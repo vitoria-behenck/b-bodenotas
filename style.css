@@ -45,11 +45,19 @@ p {
 
 #blocoDeNotas:focus {
     outline: none;
-    border-color: #f6ff00;
+    border-color: #fffb00;
     box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
 }
 
 button{
     margin-top: 15px;
     border-radius: 5px;
+    padding: 10px 15px;
+    border: none;
+    background-color: #f4e773;
 }
+button:hover{
+    cursor: pointer;
+    background-color: #e5cf95;
+}
+        
